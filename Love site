@@ -1,111 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>For My Love Mayisha ❤️</title>
-
-<style>
-
-body{
-background:linear-gradient(135deg,#ff758c,#ff7eb3);
-font-family:sans-serif;
-text-align:center;
-color:white;
-}
-
-h1{
-margin-top:40px;
-}
-
-.container{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-max-width:700px;
-margin:40px auto;
-}
-
-.box{
-background:white;
-color:#ff4d6d;
-padding:25px;
-border-radius:15px;
-font-size:22px;
-cursor:pointer;
-transition:0.3s;
-}
-
-.box:hover{
-transform:scale(1.15);
-}
-
-#msg{
-margin-top:30px;
-font-size:24px;
-font-weight:bold;
-}
-
-.heart{
-position:fixed;
-top:-10px;
-color:red;
-animation:fall 5s linear infinite;
-}
-
-@keyframes fall{
-0%{transform:translateY(0)}
-100%{transform:translateY(100vh)}
-}
-
-</style>
-
-<script>
-
-function showMsg(text){
-document.getElementById("msg").innerHTML=text;
-}
-
-function hearts(){
-let heart=document.createElement("div");
-heart.className="heart";
-heart.innerHTML="❤️";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(Math.random()*20+20)+"px";
-document.body.appendChild(heart);
-
-setTimeout(()=>{heart.remove()},5000)
-}
-
-setInterval(hearts,500);
-
-</script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love Mayisha ❤️</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 1;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        p { font-size: 1.2rem; opacity: 0.9; }
+        .heart { 
+            color: #e74c3c; 
+            font-size: 4rem; 
+            animation: pulse 1.2s infinite; 
+            margin-bottom: 15px;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        /* Floating hearts animation */
+        .bg-heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 20px;
+            animation: float 5s linear infinite;
+            bottom: -50px;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
 </head>
-
 <body>
+    <div class="container">
+        <div class="heart">❤️</div>
+        <h1>For My Love Mayisha</h1>
+        <p>You are the most special person in my life! ✨</p>
+    </div>
 
-<h1>❤️ For My Sweet Mayisha ❤️</h1>
-
-<div class="container">
-
-<div class="box" onclick="showMsg('Mayisha তুমি আমার জীবনের সবচেয়ে সুন্দর অনুভূতি ❤️')">💌</div>
-
-<div class="box" onclick="showMsg('তোমার হাসি আমার দিনটা সুন্দর করে দেয় 😊')">🌸</div>
-
-<div class="box" onclick="showMsg('আমি সবসময় তোমার পাশে থাকতে চাই')">✨</div>
-
-<div class="box" onclick="showMsg('তুমি আমার পৃথিবীর সবচেয়ে special মানুষ')">💖</div>
-
-<div class="box" onclick="showMsg('I Love You Mayisha ❤️')">❤️</div>
-
-<div class="box" onclick="showMsg('তুমি থাকলে সবকিছুই সুন্দর লাগে')">🌹</div>
-
-<div class="box" onclick="showMsg('Forever yours Mayisha 💞')">💘</div>
-
-<div class="box" onclick="showMsg('তুমি আমার সুখের কারণ')">🥰</div>
-
-</div>
-
-<div id="msg">একটা box এ click করো 💕</div>
-
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('bg-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
 </body>
 </html>
